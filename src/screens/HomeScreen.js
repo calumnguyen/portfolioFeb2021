@@ -1,6 +1,8 @@
-import { Row, Col, Button, Image } from 'react-bootstrap';
 import React from 'react';
-import LottieAnimation from '../animation/LottieAnimation';
+import { Row, Col, Button } from 'react-bootstrap';
+import { HomepageLottie } from '../animation/LottieAnimation';
+import { news } from '../data/news';
+import CardNews from '../components/CardNews';
 
 const HomeScreen = () => {
   return (
@@ -33,8 +35,15 @@ const HomeScreen = () => {
           </Button>
         </Col>
         <Col md={6} className='mb-5 '>
-          <LottieAnimation />
+          <HomepageLottie />
         </Col>
+      </Row>
+      <Row>
+        {news.map((n) => (
+          <Col sm={12} md={4}>
+            <CardNews news={n} />
+          </Col>
+        ))}
       </Row>
     </>
   );
